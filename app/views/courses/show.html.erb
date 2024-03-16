@@ -12,7 +12,7 @@
       <div class="flex justify-start items-center flex-wrap w-full mb-2">
         <% @course.categories.each do |category| %>
           <div class="bg-amaranth-100 text-amaranth-800 text-sm font-semibold mt-2 mr-2 px-2.5 py-0.5 rounded">
-            <%= category.name %>%
+            <%= category.name %>
           </div>
         <% end %>
       </div>
@@ -21,7 +21,9 @@
       <p class="text-gray-500 mt-2"> <%= @course.description %> </p>
     </div>
 
+    <div>
+      <%= render "sidebar"%>
+    </div>
 
-    <%= link_to "Back to courses", courses_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
