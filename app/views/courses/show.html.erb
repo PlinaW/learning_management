@@ -5,7 +5,7 @@
     <% end %>
 
     <% if @course.lessons.any? && @course.lessons.first.video.present? %>
-      <%= video_tag @course.lessons.first.video, controls: true, class: "w-full rounded mb-6" %>
+      <%= video_tag @course.lessons.first.video, controls: true, class: "w-128 rounded mb-6" %>
     <% end %>
 
     <div class="border p-6 rounded">
