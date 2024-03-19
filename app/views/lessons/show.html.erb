@@ -11,6 +11,10 @@
       <p class="text-gray-700"><%= @lesson.description %></p>
     </div>
 
+    <div class="my-6 lg:mb-0">
+      <%= link_to "Mark as complete", course_lesson_path(@course, @lesson), data: { turbo_method: :put }, class: "bg-green-500 rounded hove:bg-green-600 text-white-50 px-4 py-2" %>
+    </div>
+
 
 
   </div>
