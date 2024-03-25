@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get "admin" => "admin#index"
 
+  post "/webhook" => "webhooks#stripe"
+
 end
