@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   resources :checkouts, only: [:create]
 
+  # all resources are nested in admin namespace example: /admin/courses
+  namespace :admin do
+    resources :courses
+  end
+
   get "admin" => "admin#index"
 
   post "/webhook" => "webhooks#stripe"
