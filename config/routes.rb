@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     root to: "admin#index", as: :admin_root
   end
 
+  resources :checkouts, only: [:create]
+
   get "admin" => "admin#index"
+
+  post "/webhook" => "webhooks#stripe"
 
 end
