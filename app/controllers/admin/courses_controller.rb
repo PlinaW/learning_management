@@ -1,8 +1,7 @@
-class Admin::CoursesController < ApplicationController
+class Admin::CoursesController < AdminController
 
   def index
     @admin_courses = Course.all
   end
   
-
 end
