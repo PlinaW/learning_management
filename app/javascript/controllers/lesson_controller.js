@@ -12,9 +12,9 @@ export default class extends Sortable {
 
     fetch(`/admin/courses/${courseId}/lessons/${id}/move`, {
       method: 'PATCH',
-      header: {
+      headers: {
         'Content-Type': 'application/json',
-        'X-CSRF-Token': document.querySelector('[name="csrf-token"]').conetnt
+        'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
       },
       body: JSON.stringify({ position: newIndex, id: id})
     })
