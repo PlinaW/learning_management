@@ -4,6 +4,11 @@ class Admin::CoursesController < AdminController
     @admin_courses = Course.all
   end
   
+  def show
+    @admin_course = Course.find(params[:id])
+  end
+  
+
   def new
     @admin_course = Course.new
   end
