@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   # all resources are nested in admin namespace example: /admin/courses
   namespace :admin do
-    resources :courses
+    resources :courses do
+      resources :lessons
+    end
   end
 
   get "admin" => "admin#index"
