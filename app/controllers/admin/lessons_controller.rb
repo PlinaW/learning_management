@@ -9,6 +9,10 @@ class Admin::LessonsController < AdminController
     
   end
   
+  def new
+    @admin_lesson = @admin_course.lessons.new    
+  end
+  
 
   def move
     position = params[:position]
