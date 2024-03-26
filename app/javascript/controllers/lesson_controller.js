@@ -1,7 +1,22 @@
-import { Controller } from "@hotwired/stimulus"
+import Sortable from 'stimulus-sortable'
 
 // Connects to data-controller="lesson"
-export default class extends Controller {
-  connect() {
+export default class extends Sortable {
+  static values = { course: Number }
+
+  onUpdate(event) {
+    super.onUpdate(event)
+    const newIndex = event.newIndex
+    const id = event.item.id
+    const courseId = this.courseValue
+
+    fetch(`/admin/courses/${courseId}/lessons/${id}/move`, {
+      method: 'PATCH',
+      header: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('[name="csrf-token"]').conetnt
+      },
+      body: JSON.stringify({ position: newIndex, id: id})
+    })
   }
 }
