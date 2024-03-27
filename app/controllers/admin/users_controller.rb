@@ -1,7 +1,11 @@
 class Admin::UsersController < AdminController
 
   def index
-    @admin_users = User.all
+    if params[:query].present?
+      @admin_users = User.where("email LIKE ?", "%#{params[:query]}%").order(created_at: :desc)
+    else
+      @admin_users = User.all.order(created_at: :desc)
+    end
   end
 
   def show
@@ -18,8 +22,8 @@ class Admin::UsersController < AdminController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy!
+    @admin_user = User.find(params[:id])
+    @admin_user.destroy!
     redirect_to admin_users_path
   end
 end
