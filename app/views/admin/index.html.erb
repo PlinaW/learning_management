@@ -34,4 +34,17 @@
       </div>
     </div>
   </div>
+
+  <div class="w-full flex flex-col justify-between items-center md:flex-row mt-8" data-controller="dashboard" data-dashboard-signups-value=<%= @sign_ups_by_day.to_json %> data-dashboard-completed-value=<%= @completed_lessons_by_day.to_json %>>
+    <div class="w-full md:w-1/2">
+      <h2 class="font-bold text-2xl my-8 text-center">Completed Lessons</h2>
+      <canvas id="chart"></canvas>
+    </div>
+    <div class="w-full md:w-1/2">
+      <h2 class="font-bold text-2xl my-8 text-center">Sign Ups</h2>
+      <canvas id="sign_ups_chart"></canvas>
+    </div>
+  </div>
+
+
 </div>
